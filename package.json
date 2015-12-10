@@ -2,6 +2,7 @@
   "name": "publish-tag",
   "description": "NPM publish command with specific tag extracted from the last commit messages",
   "main": "index.js",
+  "version": "0.0.0-semantic-release",
   "scripts": {
     "test": "rocha src/*-spec.js",
     "lint": "standard bin/*.js index.js src/*.js",
