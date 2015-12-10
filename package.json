@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "rocha src/*-spec.js",
-    "lint": "standard bin/*.js index.js",
+    "lint": "standard bin/*.js index.js src/*.js",
     "commit": "commit-wizard",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";"
   },
