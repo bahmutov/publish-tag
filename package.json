@@ -4,7 +4,7 @@
   "main": "index.js",
   "version": "0.0.0-semantic-release",
   "scripts": {
-    "test": "rocha src/*-spec.js",
+    "test": "node --harmony node_modules/.bin/rocha src/*-spec.js",
     "lint": "standard bin/*.js index.js src/*.js",
     "commit": "commit-wizard",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
