@@ -54,12 +54,12 @@ function publishTag (isTest) {
 module.exports = publishTag
 
 if (!module.parent) {
-  (function examplePublish () {
+  !(function examplePublish () {
     publishTag(true)
       .done()
   }()) // eslint-disable-line
 
-  (function examplePublishCommit () { // eslint-disable-line
+  !(function examplePublishCommit () { // eslint-disable-line
     const commits = [{
       message: 'chore(test): just a test\n\nbody of the message\nTAG: my-test\n'
     }]
