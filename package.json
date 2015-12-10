@@ -1,0 +1,62 @@
+{
+  "name": "publish-tag",
+  "version": "1.0.0",
+  "description": "NPM publish command with specific tag extracted from the last commit messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "rocha src/*-spec.js",
+    "lint": "standard bin/*.js index.js",
+    "commit": "commit-wizard",
+    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/publish-tag.git"
+  },
+  "files": [
+    "bin",
+    "index.js",
+    "src/*.js",
+    "!src/*-spec.js"
+  ],
+  "keywords": [
+    "npm",
+    "publish",
+    "tag",
+    "distribution",
+    "channel",
+    "cli"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/publish-tag/issues"
+  },
+  "homepage": "https://github.com/bahmutov/publish-tag#readme",
+  "dependencies": {
+    "check-more-types": "2.3.0",
+    "ggit": "1.5.0",
+    "lazy-ass": "1.3.0",
+    "npm-utils": "1.0.0",
+    "simple-bin-help": "1.5.0"
+  },
+  "devDependencies": {
+    "pre-git": "3.0.0",
+    "rocha": "1.6.0",
+    "standard": "5.4.1"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [
+        "npm run lint",
+        "npm run test"
+      ],
+      "pre-push": [
+        "npm run size"
+      ],
+      "post-commit": [],
+      "post-merge": []
+    }
+  }
+}
