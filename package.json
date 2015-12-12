@@ -49,8 +49,8 @@
   },
   "devDependencies": {
     "git-issues": "1.2.0",
-    "pre-git": "3.0.0",
-    "rocha": "1.6.0",
+    "pre-git": "3.1.0",
+    "rocha": "1.6.1",
     "semantic-release": "6.0.3",
     "standard": "5.4.1"
   },
