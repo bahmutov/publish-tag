@@ -57,8 +57,9 @@ function publishCommits (commits, isTest) {
 }
 
 function publishTag (isTest) {
+  // how many commits to consider?
   return ggit.commits.all(process.cwd())
-    .then(commits => commits.slice(0, 1))
+    .then(commits => commits.slice(0, 5))
     .then(commits => publishCommits(commits, isTest))
 }
 
