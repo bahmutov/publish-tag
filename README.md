@@ -54,6 +54,45 @@ you can use explicit command
 
     "semantic-release": "semantic-release pre && node --harmony bin/publish-tag.js && semantic-release post"
 
+## Good commit messages
+
+Semantic release works best when your commit messages are simple to parse. I recommend using
+conventional commit convention implemented in tools like [pre-git](https://github.com/bahmutov/pre-git) and
+[commitizen](https://commitizen.github.io/cz-cli/). Here are examples of git commit messages that
+are simple to parse
+
+    feat(cli): added cli script
+    fix(doc): fixed typos in the README
+
+The easiest way to enforce this format is to install [pre-git@3.x.x](https://github.com/bahmutov/pre-git)
+and use `npm run commit` script that guides your through the message parts. It will ask you at the
+end what tag this version should be released (if semantic release determines that it should be released).
+Here is an example wizard terminal output
+
+    ? Select the type of change that you're committing: fix: A bug fix
+    ? Denote the scope of this change (db, api, cli, etc.): docs
+    ? Write a short, imperative tense description of the change:
+     Described commitizen and conventional commit message format
+    ? Provide a longer description of the change:
+    ? List issues this commit resolves (fixes #2, closes #14):
+    ? Is this a major breaking change: No
+    ? Should this be published under different tag?
+      This will let users still install the current latest,
+      but eary adapters can `npm install <name>@<tag>`
+     (latest): example
+
+Once you answer the last question, the full commit message is formed and the code is committed,
+making it simple for `publish-tag` to parse. For example the above answers will make the following message
+
+```
+fix(docs): Described commitizen and conventional commit message format
+
+
+TAG: example
+```
+
+The semantic release will publish it under the distribution tag "example".
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2015
