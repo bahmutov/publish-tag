@@ -12,6 +12,27 @@
 [![manpm](https://img.shields.io/badge/manpm-%E2%9C%93-3399ff.svg)](https://github.com/bahmutov/manpm)
 [![standard style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
+## Install and use
+
+Install this package as a dev dependency
+
+    npm install --save-dev publish-tag
+
+Then when using [semantic-release](https://github.com/semantic-release/semantic-release) instead of just
+commits and publishing, add to the commit body text `TAG: <tag>` text. The `<tag>` could be any word: 'alpha',
+'next', 'future'.
+
+The instead of the standard semantic release command
+
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+
+use `publish-tag` command instead of `npm publish`
+
+    "semantic-release": "semantic-release pre && publish-tag && semantic-release post"
+
+This script will examine commit log, and will run `npm publish --tag <tag>` if it finds
+`TAG: <tag>` text. Or if the tag is not found it will run the plain `npm publish` command.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2015

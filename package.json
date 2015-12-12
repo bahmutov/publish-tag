@@ -2,6 +2,10 @@
   "name": "publish-tag",
   "description": "NPM publish command with specific tag extracted from the last commit messages",
   "main": "index.js",
+  "bin": {
+    "publish": "bin/publish-tag,js",
+    "publish-tag": "bin/publish-tag,js"
+  },
   "version": "0.0.0-semantic-release",
   "scripts": {
     "test": "node --harmony node_modules/.bin/rocha src/*-spec.js",
