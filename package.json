@@ -12,7 +12,7 @@
     "lint": "standard bin/*.js index.js src/*.js",
     "commit": "commit-wizard",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release pre && node --harmony bin/publish-tag.js && semantic-release post",
     "issues": "git-issues"
   },
   "repository": {

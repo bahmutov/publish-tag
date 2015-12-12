@@ -33,6 +33,13 @@ use `publish-tag` command instead of `npm publish`
 This script will examine commit log, and will run `npm publish --tag <tag>` if it finds
 `TAG: <tag>` text. Or if the tag is not found it will run the plain `npm publish` command.
 
+### Note
+
+If your CI has problems executing the `publish-tag` script directly due to `--harmony` argument,
+you can use explicit command
+
+    "semantic-release": "semantic-release pre && node --harmony bin/publish-tag.js && semantic-release post"
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2015
