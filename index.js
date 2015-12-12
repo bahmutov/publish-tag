@@ -3,6 +3,7 @@ const findTag = require('./src/find-tag')
 const la = require('lazy-ass')
 const is = require('check-more-types')
 const Promise = require('bluebird')
+const npmUtils = require('npm-utils')
 
 const commitSchema = {
   message: is.unemptyString,
@@ -43,7 +44,8 @@ function publish (isTest, tag) {
       return resolve()
     }
 
-    return reject(new Error('not implemented'))
+    const options = is.unemptyString(tag) ? { tag: tag } : undefined
+    return npmUtils.publish(options)
   })
 }
 
