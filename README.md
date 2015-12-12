@@ -33,6 +33,20 @@ use `publish-tag` command instead of `npm publish`
 This script will examine commit log, and will run `npm publish --tag <tag>` if it finds
 `TAG: <tag>` text. Or if the tag is not found it will run the plain `npm publish` command.
 
+Once your package has been published with `--tag something`
+
+- regular users can still install the previous version using `npm i <package name>`
+- alpha users can install the tagged version using `npm i <package name>@something`
+
+You can publish more versions under the same tag.
+When you are ready to switch, use this command to mark
+
+    npm dist-tag add <package>@<good version> latest
+
+For explanation and inspiration for this tool, see [One simple trick][1]
+
+[1]: https://medium.com/greenkeeper-blog/one-simple-trick-for-javascript-package-maintainers-to-avoid-breaking-their-user-s-software-and-to-6edf06dc5617#.37rk01hzs
+
 ### Note
 
 If your CI has problems executing the `publish-tag` script directly due to `--harmony` argument,
