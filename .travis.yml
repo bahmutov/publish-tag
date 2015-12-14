@@ -1,4 +1,4 @@
-eng:
+env:
   - npm_config_loglevel=verbose
 sudo: false
 language: node_js
